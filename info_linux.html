@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://www.golaravel.com/ -->
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>实用Linux操作命令</title>
+		<link rel="shortcut icon" href="./img/icon.jpg">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>实用Linux操作命令</h3>
+		</div>
+		<div class="panel-body">
+			<p>
+				<span style="color: rgb(255, 0, 0);"><strong>Linux操作命令</strong></span>
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//切换权限</span>
+			</p>
+			<p>
+				chown -R weblogic:weblogic /home/wenlogic
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//防火墙操作</span>
+			</p>
+			<p>
+				cd /etc/sysconfig
+			</p>
+			<p>
+				sudo SuSEfirewall2 stop
+			</p>
+			<p>
+				vi SuSEfirewall2
+			</p>
+			<p>
+				chkconfig --list|grep fire
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//时间修改</span>
+			</p>
+			<p>
+				date -s &quot;2016-10-26 23:59:59&quot;
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//查看系统用户</span>
+			</p>
+			<p>
+				cat /etc/passwd
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//查看端口开启</span>
+			</p>
+			<p>
+				netstat -nal|grep 70
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//测试端口</span>
+			</p>
+			<p>
+				telnet 10.129.19.249 7001
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//启动一个新wenlogic应用sso</span>
+			</p>
+			<p>
+				./startManagedWeblogic.sh sso
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//解压jar包</span>
+			</p>
+			<p>
+				jar -xvf csr.web.war
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//解压war到指定目录</span>
+			</p>
+			<p>
+				unzip csr.web.war -d csr.web
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//查看cpu信息和个数</span>
+			</p>
+			<p>
+				cat /proc/cpuinfo
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//查看内存</span>
+			</p>
+			<p>
+				cat /proc/meminfo |grep MemTotal
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//硬盘大小</span>
+			</p>
+			<p>
+				fdisk -l|grep Disk
+			</p>
+			<p>
+				/<span style="color: rgb(255, 0, 0);">/查看系统信息</span>
+			</p>
+			<p>
+				head -n 10 /etc/issue
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//jmx添加监控端口</span>
+			</p>
+			<p>
+				-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=8999
+			</p>
+			<p>
+				-Dcom.sun.management.jmxremote.ssl=false&nbsp;-Dcom.sun.management.jmxremote.authenticate=false
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//删除指定日期前日志命令</span>
+			</p>
+			<p>
+				find /app/ccmsmds/logs -mtime +14 -type f -name &#39;*log*&#39; -exec rm -rf {} \;
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//后台启动命令</span>
+			</p>
+			<p>
+				nohup &amp;
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//重启进程脚本</span>
+			</p>
+			<p>
+				source /etc/profile
+			</p>
+			<p>
+				/app/ccmsmds/stop.sh &gt;&gt;/app/crontab.log
+			</p>
+			<p>
+				sleep 10
+			</p>
+			<p>
+				/app/ccmsmds/start.sh &gt;&gt;/app/crontab.log
+			</p>
+			<p>
+				sleep 10
+			</p>
+			<p>
+				ps -ef|grep java &gt;&gt;/app/crontab.log
+			</p>
+			<p>
+				echo &quot;restart dc success! `date+&quot;%Y/%m/%d %H:%M:%S&quot;` &quot;&nbsp;&gt;&gt;/app/crontab.log
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//top命令实时查看服务器某进程cup内存占用情况脚本</span>
+			</p>
+			<p>
+				for((;;))
+			</p>
+			<p>
+				do
+			</p>
+			<p>
+				echo -n `date+&quot;%Y/%m/%d %H:%M:%S&quot; ` &gt;&gt;/app/top_137.log;
+			</p>
+			<p>
+				echo -n &quot; &nbsp; &nbsp;&quot; &gt;&gt;/app/top_137.log;
+			</p>
+			<p>
+				echo `top -b -n1|grep memcached ` &gt;&gt;/app/top_137.log;
+			</p>
+			<p>
+				sleep 3;
+			</p>
+			<p>
+				done
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//启动java进程脚本</span>
+			</p>
+			<p>
+				CLASSPATH=.:/app/ccmsmds/cache.jar
+			</p>
+			<p>
+				JAVAPATH=/usr/jdk17/bin
+			</p>
+			<p>
+				echo &quot;classpath=&quot;$CLASSPATH
+			</p>
+			<p>
+				echo &quot;javapath=&quot;$JAVAPATH
+			</p>
+			<p>
+				nohup $JAVAPATH/java -cp $CLASSPATH com.spdb.platform.cache.job.RefreshDataJob &gt;/dev/null 2&gt;nohup.log &amp;
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//停止java进程脚本</span>
+			</p>
+			<p>
+				#!/bin/sh
+			</p>
+			<p>
+				ps -ef|grep java|grep -v grep |awk &#39;{print $2}&#39;|xargs -n1 kill -9
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//weblogic AdminServer防止CPU冲高的启动脚本</span>
+			</p>
+			<p>
+				cd /app/ccmsdomain/bin
+			</p>
+			<p>
+				cat ../nohup_admin.out &gt; ../nohup_admin.out.`date +%Y%m%d`
+			</p>
+			<p>
+				cat /dev/null &gt; ../nohup_admin.out
+			</p>
+			<p>
+				export USER_MEM_ARGS=&#39;-Xms1024m&nbsp;-Xmx1024m -XX:MaxPermSize=256m -XX:+HeapDumpOnOutOfMemoryError -Dwelogic.threadpool.MinPoolSize=50&#39;
+			</p>
+			<p>
+				nohup ./startWeblogic.sh &gt; ../nohup_admin.out &amp;
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//weblogic应用启动脚本</span>
+			</p>
+			<p>
+				export USER_MEM_ARGS=&quot;-Xms1024m -Xmx1024m -XX:MaxPermSize=256m&quot;
+			</p>
+			<p>
+				export JAVA_OPTIONS=&quot;$JAVA_OPTIONS -Dwelogic.threadpool.MinPoolSize=1
+			</p>
+			<p>
+				-Dwelogic.threadpool.MaxPoolSize=100 -Dapp.servername=ccmsmgmt -Dfile.encoding=GBK&quot;
+			</p>
+			<p>
+				rm -rf /app/ccmsdomain/servers/ccmsapp01/stage/* &gt;/app/log/ccmsapp01-console.log
+			</p>
+			<p>
+				rm -rf /app/ccmsdomain/servers/ccmsapp01/tmp/_WL_user/* &gt;/app/log/ccmsapp01-console.log
+			</p>
+			<p>
+				nohup ./startManagedWeblogic.sh ccmsapp01 http://10.10.10.109:7001&nbsp;&gt;/app/log/ccmsapp01-console.log &amp;
+			</p>
+			<p>
+				echo -------------- tail -f&nbsp;/app/log/ccmsapp01-console.log ---------------------
+			</p>
+			<p>
+				tail -f&nbsp;/app/log/ccmsapp01-console.log
+			</p>
+			<p>
+				<span style="color: rgb(255, 0, 0);">//weblogic应用停止脚本</span>
+			</p>
+			<p>
+				./stopManagedWeblogic.sh ccmsapp01 t3://10.10.10.109:7001
+			</p>
+		</div>
+	</div>
+	</body>
+</html>
