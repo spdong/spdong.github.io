@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://www.golaravel.com/ -->
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>操作js示例代码</title>
+		<link rel="shortcut icon" href="../img/icon.jpg">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>操作js示例代码</h3>
+		</div>
+		<div class="panel-body">
+			<div class="col-sm-2">
+			</div>
+			<div class="col-sm-8">
+				<p>
+					<span style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><span style="color:#FF4635;font-family:Consolas"><strong>js代码</strong></span></span>
+				</p>
+				<p>
+					<span style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><span style="color:#7F0055;font-family:Consolas"><span style="font-size: 15px;">//操作确认</span></span></span>
+				</p>
+				<p>
+					<span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>if</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(confirm(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;是否删除？&quot;</span></span> <span style="font-family:Consolas"><span style="font-size:11pt">)){</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.ajax({</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url :</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;deleteCollection.do&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">data:$(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;#addmarketFrom&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">).serialize(),</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type :</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;post&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; dataType:</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;json&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success :</span></span> <span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>function</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(data){</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert(</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;删除成功！&quot;</span></span> <span style="font-family:Consolas"><span style="font-size:11pt">);</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; window.location.reload();</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error :</span></span> <span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>function</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(){</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></span>
+				</p>
+				<p style="margin-top: 0px; margin-bottom: 0px; padding: 5px 0px; font-size: 14px; font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif;
+					<span style="color:#9C004C">//由JSON字符串转换为JSON对象</span>
+				</p>
+				<p>
+					var obj = eval(&#39;(&#39; + str + &#39;)&#39;);
+				</p>
+				<p>
+					<span style="color: rgb(156, 0, 76); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px;">// c 标签 &nbsp;forEach 和 choose&nbsp;</span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt;">c:forEach</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">items</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${genderContents}</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">varStatus</span></span> <span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;i&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">var</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gender&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					&nbsp;<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:choose</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:when</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">test</span></span> <span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${i.index==&#39;0&#39;}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+					<p>
+						<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">input</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">class</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;radio&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">id</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gender_</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.dictNo}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">type</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;radio&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">value</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.dictNo}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">name</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gender&quot; </em></span></span><span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">checked</span></span> <span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;checked&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">/&gt;</span></span>
+					</p>
+					<p>
+						<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">label</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">class</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;input-label&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">for</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gender_</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.dictNo}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.content}</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">label</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+					</p>
+				</blockquote>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:when</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:otherwise</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span><span style="font-size: 11pt; font-family: Consolas;">&nbsp;&nbsp;</span>
+				</p>
+				<blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
+					<p>
+						<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">input</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">class</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;radio&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">id</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gender_</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.dictNo}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">type</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;radio&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">value</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.dictNo}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">name</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gender&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">/&gt;</span></span>
+					</p>
+					<p>
+						<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">label</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">class</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;input-label&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">for</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gender_</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.dictNo}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gender.content}</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">label</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+					</p>
+				</blockquote>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;</span></span>&nbsp;<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:otherwise</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:choose</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt;">c:forEach</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt"><br/></span></span>
+				</p>
+				<p>
+					<span style="color:#9C004C"><span style="font-size: 15px;"><span style="font-family:Consolas">//下拉框回显</span></span><span style=" font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px;">自动选中</span><span style="font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px;">&nbsp;</span></span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt; ">span</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">class</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;label&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">年级：</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt; ">span</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">select</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">class</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;select&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">id</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;grade&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">name</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;grade&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;</span></span>&nbsp;&nbsp;&nbsp;<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">option</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">value</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">请选择</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">option</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&nbsp; &nbsp; &lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:forEach</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">var</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;gradeContent&quot;</em></span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">items</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gradeContents}</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">option</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">value</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gradeContent.dictNo}</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt"><em>&quot;</em></span></span>&nbsp;
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span></span> <span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:if</span></span> <span style="color:#7F007F;font-family:Consolas"><span style="font-size:11pt">test</span></span><span style="font-family:Consolas"><span style="font-size:11pt">=</span></span> <span style="color:#010101;font-family:Consolas"><span style="font-size:11pt">&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gradeContent.dictNo==marketInfo.grade}</span></span> <span style="color:#010101;font-family:Consolas"><span style="font-size:11pt">&quot;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;selected= &quot;selected&quot;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:if</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span><span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">${gradeContent.content}</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">option</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">c:forEach</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&lt;/</span></span><span style="color:#3F7F7F;font-family:Consolas"><span style="font-size:11pt">select</span></span> <span style="color:#008080;font-family:Consolas"><span style="font-size:11pt">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;</span></span><span style="font-size: 11pt; font-family: Consolas;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+				</p>
+				<p>
+					<span style="color: rgb(156, 0, 76);  font-size: 15px;"><span style="font-family:Consolas">//js循环each</span></span><span style="color: rgb(156, 0, 76); font-family: Tahoma, Helvetica, Arial, 宋体, sans-serif; font-size: 14px;">&nbsp;</span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">$(data).each(</span></span><span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>function</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(</span><span style="font-size:11pt;">index</span> <span style="font-size:11pt">,element){</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;content +=</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&#39;&lt;span&gt;&lt;input type=&quot;radio&quot; id=&quot;&#39;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">+element.id+</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&#39;&quot; name=&quot;id&quot; value=&quot;&#39;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">+element.id+</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&#39;&quot;/&gt;&lt;label class=&quot;left_td&quot; for=&quot;&#39;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">+element.id+</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&#39;&quot; title=&quot;&#39;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">+element.name+</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&#39;&quot;&gt;&#39;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">+element.name+</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&#39;&lt;/label&gt;&lt;/span&gt;&#39;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp; &nbsp; });</span></span>
+				</p>
+				<p>
+					<br/>
+				</p>
+				<p>
+					<span style="color: rgb(156, 0, 76); font-size: 15px;"><span style="font-family:Consolas">//1次预加载</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">$(document).ready(</span></span><span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>function</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(){&nbsp;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>var</strong></span></span> <span style="font-family:Consolas"><span style="font-size:11pt">ctx = $(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;#ctx&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">).val();</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>var</strong></span></span> <span style="font-family:Consolas"><span style="font-size:11pt">flag = $(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;#flag&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">).val();</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span><span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>if</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(flag==</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&#39;1&#39;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">){</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;performance();&nbsp;&nbsp;&nbsp;&nbsp;</span></span> <span style="color:#3F7F5F;font-family:Consolas"><span style="font-size:11pt">//初始化加载业绩统计</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;.tab-hd .fore5&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">).one(</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;click&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span> <span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>function</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(){</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$(</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;.tab-bd .fore5&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">).show();</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.ajax({</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method:</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;POST&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataType :</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;json&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url: ctx +</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;/dataStatistics/returnHRData.do&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data:{flag :</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;1&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">},</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;async:</span></span> <span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>false</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">,</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success:</span></span> <span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>function</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(data) {</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error:</span></span> <span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt"><strong>function</strong></span></span><span style="font-family:Consolas"><span style="font-size:11pt">(XMLHttpResponse) {</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span></span><span style="font-size: 11pt; font-family: Consolas;">&nbsp; &nbsp;</span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt"><br/></span></span>
+				</p>
+				<p>
+					<span style="font-size: 11pt;"><a style="font-size: 14.6667px; white-space: normal;"><span style="color: rgb(255, 0, 0);"><span style="font-size: 11pt;"><font face="Consolas">//</font><font face="宋体">后台跳转</font></span></span></a></span>
+				</p>
+				<p>
+					&nbsp;<span style="color:#7F0055;font-family:Consolas"><span style="font-size: 11pt; background-position: initial initial; background-repeat: initial initial;"><strong>return</strong></span></span><span style="font-family:Consolas">&nbsp;</span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size: 11pt;  background-position: initial initial; background-repeat: initial initial;">&quot;redirect:/call/queryCalls.do&quot;</span></span>&nbsp;<span style="font-family:Consolas"><span style="font-size: 11pt;  background-position: initial initial; background-repeat: initial initial;">;&nbsp;</span></span>
+				</p>
+				<p>
+					<br/>
+				</p>
+				<p>
+					<span style="color:#FF0000;font-family:Consolas"><span style="font-size:11pt">//</span></span><span style="color:#FF0000;font-family:宋体"><span style="font-size:11pt">刷新当前页面</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">window.location.reload();</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt"><br/></span></span>
+				</p>
+				<p>
+					<span style="color:#FF0000;font-family:Consolas"><span style="font-size:11pt">//</span></span><span style="color:#FF0000;font-family:宋体"><span style="font-size:11pt">跳转页面</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">window.location.href=<font color="#2a00ff">&quot;&quot;</font></span></span><span style="font-family:Consolas"><span style="font-size:11pt">;</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt"><br/></span></span>
+				</p>
+				<p>
+					<span style="color:#FF0000;font-family:Consolas"><span style="font-size:11pt">//</span></span><span style="color:#FF0000;font-family:宋体"><span style="font-size:11pt">跳转页面</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">window.open(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;http://&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">+path);</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt"><br/></span></span>
+				</p>
+				<p>
+					<span style="color:#FF0000;font-family:Consolas"><span style="font-size: 11pt;">//</span></span><span style="color:#FF0000;font-family:宋体"><span style="font-size: 11pt;">隐形标签赋值</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt; ">$(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt; ">&quot;#typeHidden&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt; ">).val(id);</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt; "><br/></span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="color: rgb(255, 0, 0); font-family: Consolas;"><span style="font-size: 11pt;">//</span></span><span style="color: rgb(255, 0, 0); font-family: 宋体;"><span style="font-size: 11pt;"><span style="font-family: 宋体;">是否含有 tit</span></span></span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt; ">alert($(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt;">&quot;#cntList .spancnt&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt; ">).hasClass(</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt;">&quot;tit&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt; ">));</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt; "><br/></span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-family: Consolas; color: rgb(255, 0, 0);"><span style="font-size: 11pt;">//</span></span><span style="color: rgb(255, 0, 0); font-family: 宋体;"><span style="font-size: 11pt;"><span style="font-family: 宋体;">移除选中，添加选中</span></span></span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;$(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;#showTypeId .item-li&quot;</span></span> <span style="font-family:Consolas"><span style="font-size:11pt">).removeClass(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;curr&quot;</span></span> <span style="font-family:Consolas"><span style="font-size:11pt">);</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt">&nbsp;$(</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;#showTypeId .item-li[val=&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">+data.showType+</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;]&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">).addClass(</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt">&quot;curr&quot;</span></span><span style="font-family:Consolas"><span style="font-size:11pt">);</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt"><br/></span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-family: Consolas; color: rgb(255, 0, 0);"><span style="font-size: 11pt;">//</span></span><span style="color: rgb(255, 0, 0); font-family: 宋体;"><span style="font-size: 11pt;"><span style="font-family: 宋体;">获取选中radio的value值</span></span></span></span>
+				</p>
+				<p>
+					<span style="color:#7F0055;font-family:Consolas"><span style="font-size:11pt;"><strong>var</strong></span></span> <span style="font-family:Consolas"><span style="font-size:11pt;">g</span><span style="font-size:11pt;">ender = $(</span></span> <span style="color:#2A00FF;font-family:Consolas"><span style="font-size:11pt; ">&quot;#gender input[type=radio]:checked&quot;</span></span> <span style="font-family:Consolas"><span style="font-size:11pt;">).val();</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><br/></span>
+				</p>
+				<p>
+					<span style="color:#FF0000;font-family:Consolas"><span style="font-size: 11pt;">/</span></span><span style="color:#FF0000;font-family:宋体"><span style="font-size: 11pt;">页面截取字符串</span></span><span style="color:#FF0000;font-family:Consolas"><span style="font-size: 11pt;">/</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt; ">${fn:substring(o.name,&quot;0&quot;,&quot;5&quot;)}${fn:length(o.name)&gt;5?&#39;。。&#39;:&#39;&#39; }</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:11pt; "><br/></span></span>
+				</p>
+				<p>
+					<span style="color:#FF0000"><span style="font-size: 11pt;"><span style="font-family:Consolas">/</span><span style="font-family:宋体">手动触发下拉框 onchange事件</span></span></span><span style="color:#FF0000;font-family:Consolas"><span style="font-size: 11pt;">/</span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas, &#39;Courier New&#39;, Courier, mono, serif; font-size: 12px; ">$(&quot;#ddl_test&quot;).trigger(&quot;change&quot;);</span>
+				</p>
+				<p>
+					<span style="font-size: 12px;"><span style="font-family: Consolas, &#39;Courier New&#39;, Courier, mono, serif;"><span style="background-color: rgb(248, 248, 248);"><br/></span></span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="color: rgb(255, 0, 0);"><span style="font-size: 11pt;"><span style="font-family: Consolas;">/</span><span style="font-family: 宋体;"><span style="font-family: 宋体;">获取父ty的下一个/上一个tr内的input框的value值</span></span></span></span><span style="color: rgb(255, 0, 0); font-family: Consolas;"><span style="font-size: 11pt;">/</span></span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:12pt;">$(obj).parents(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:12pt;">&quot;tr&quot;</span></span><span style="font-family:Consolas"><span style="font-size:12pt;">).next().find(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:12pt;">&quot;input&quot;</span></span><span style="font-family:Consolas"><span style="font-size:12pt;">).val()</span></span>
+				</p>
+				<p>
+					<span style="font-family:Consolas"><span style="font-size:12pt; ">$(obj).parents(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:12pt;">&quot;tr&quot;</span></span><span style="font-family:Consolas"><span style="font-size:12pt;">).prev().find(</span></span><span style="color:#2A00FF;font-family:Consolas"><span style="font-size:12pt;">&quot;input&quot;</span></span><span style="font-family:Consolas"><span style="font-size:12pt;">).val()</span></span>
+				</p>
+				<p>
+					<br/>
+				</p>
+			</div>
+			<div class="col-sm-2">
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

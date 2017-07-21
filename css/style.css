@@ -11,8 +11,11 @@ h3{
 	text-align: center;
 
 }
+.panel-primary>.panel-heading {
+    background-color: cadetblue;
+}
 .panel-body {
-    background-color: black;
+    background-color: beige;
 	min-height: 480px;
 	color: forestgreen;
 }

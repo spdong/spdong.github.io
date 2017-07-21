@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://www.golaravel.com/ -->
+<html lang="zh-CN">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Mybatis详解代码</title>
+		<link rel="shortcut icon" href="../img/icon.jpg">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>Mybatis详解代码</h3>
+		</div>
+		<div class="panel-body">
+			<div class="col-sm-2">
+			</div>
+			<div class="col-sm-8">
+				<p>
+					<span style="word-wrap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space;"><a style="font-size: 19px;"><span style="color:#9C004C">//操作MYSQL数据库</span></a></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt; color: rgb(0, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">to_days(c.nextTime)=to_days(NOW()) </span><span style="font-family: Consolas; font-size: 11pt; color: rgb(255, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><a>//返回天数</a>&nbsp;判断相等</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">IFNULL(s.AGREE_NUM,0) </span><span style="font-family: Consolas; font-size: 11pt; text-decoration: none; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><a style="color: rgb(255, 0, 0);"><span style="text-decoration: none; font-family: Consolas; font-size: 11pt; color: rgb(255, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">//如果为空</span></a></span><span style="font-family: Consolas; font-size: 11pt; color: rgb(255, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><span style="color: rgb(88, 152, 255);">&nbsp;</span><span style="font-family: Consolas; font-size: 11pt; color: rgb(255, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">返回0值</span></span>
+				</p>
+				<p>
+					<span style="font-family: Helvetica, Tahoma, Arial, sans-serif; font-size: 14px;">select&nbsp;MB001,MB002,&nbsp;(case&nbsp;when&nbsp;MB001=&#39;成品&#39;&nbsp;then&nbsp;1&nbsp;else&nbsp;0&nbsp;end)&nbsp;AS&nbsp;MB003&nbsp;FROM&nbsp;INVMB</span><a style="font-family: Consolas; font-size: 15px; color: rgb(255, 0, 0); text-decoration: none;"><span style="color: rgb(255, 0, 0);">//类似if函数使用</span></a>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="font-size: 11pt;">date_format(CREATE_TIME,&#39;%Y-%m-%d %k:%i:%S&#39;)</span><span style="font-size: 11pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&nbsp;<span style="font-family: Consolas; font-size: 11pt; color: rgb(255, 0, 0); background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">// 转换日期格式 2005-11-12 23:16:30</span></span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;"><br/></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 15px; color: rgb(255, 0, 0);"><a>//获取插入记录主键</a>&nbsp; mapping 返回值 void &nbsp; 取参数实体类 id 上</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="color: rgb(0, 128, 128); font-size: 11pt;">&lt;</span><span style="color: rgb(63, 127, 127); font-size: 11pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">selectKey</span> <span style="color: rgb(127, 0, 127); font-size: 11pt;">resultType</span><span style="font-size:11pt">=</span> <span style="color: rgb(42, 0, 255); font-size: 11pt;"><em>&quot;java.lang.Long&quot;</em></span> <span style="color: rgb(127, 0, 127); font-size: 11pt;">keyProperty</span> <span style="font-size:11pt">=</span><span style="color: rgb(42, 0, 255); font-size: 11pt;"><em>&quot;id&quot;</em></span> <span style="color: rgb(127, 0, 127); font-size: 11pt;">order</span><span style="font-size:11pt">=</span><span style="color: rgb(42, 0, 255); font-size: 11pt;"><em>&quot;AFTER&quot;</em></span><span style="color: rgb(0, 128, 128); font-size: 11pt;">&gt;</span> <span style="font-size:11pt">&nbsp;</span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; select last_insert_id()</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="color: rgb(0, 128, 128); font-size: 11pt;">&lt;/</span><span style="color: rgb(63, 127, 127); font-size: 11pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">selectKey</span> <span style="color: rgb(0, 128, 128); font-size: 11pt;">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; color: rgb(0, 128, 128); font-size: 11pt;"><br/></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt; color: rgb(255, 0, 0);">&lt;!-- 根据id修改文件组别 --&gt;</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 128, 128); font-size: 11pt;">&lt;</span><span style="color: rgb(63, 127, 127); font-size: 11pt;">update</span> <span style="color: rgb(127, 0, 127); font-size: 11pt;">id</span> <span style="font-size:11pt">=</span><span style="color: rgb(42, 0, 255); font-size: 11pt;"><em>&quot;updatePicByGroupId&quot;</em></span> <span style="color: rgb(127, 0, 127); font-size: 11pt;">parameterType</span><span style="font-size:11pt">=</span> <span style="color: rgb(42, 0, 255); font-size: 11pt;"><em>&quot;Object&quot;</em></span><span style="color: rgb(0, 128, 128); font-size: 11pt;">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update tb_marketapp_file set group_id = #{groupId} where id in ( ${<span style="text-decoration:underline;">ids</span>} )</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="font-size:11pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: rgb(0, 128, 128); font-size: 11pt;">&lt;/</span><span style="color: rgb(63, 127, 127); font-size: 11pt;">update</span> <span style="color: rgb(0, 128, 128); font-size: 11pt;">&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; color: rgb(0, 128, 128); font-size: 11pt;"><br/></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 15px; color: rgb(255, 0, 0);">&lt;!-- like查询 --&gt;</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; margin: 0px; padding: 0px; color: rgb(153, 51, 0); font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&lt;</span><span style="font-family: Consolas; margin: 0px; padding: 0px; color: rgb(153, 51, 0); font-weight: bold;">if</span><span style="font-family: Consolas; margin: 0px; padding: 0px;">&nbsp;</span><span style="font-family: Consolas; margin: 0px; padding: 0px; color: red;">test</span><span style="font-family: Consolas; margin: 0px; padding: 0px;">=</span><span style="font-family: Consolas; margin: 0px; padding: 0px; color: blue;">&quot;bookName!=null&quot;</span><span style="font-family: Consolas; margin: 0px; padding: 0px; color: rgb(153, 51, 0); font-weight: bold;">&gt;</span><span style="font-family: Consolas; margin: 0px; padding: 0px;">&nbsp;&nbsp;</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="margin: 0px; padding: 0px; color: black;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ookName&nbsp;like&nbsp;CONCAT(&#39;%&#39;,&#39;${bookName}&#39;,&#39;%&#39;&nbsp;)&nbsp;&nbsp;</span></span>
+				</p>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family: Consolas;"><span style="margin: 0px; padding: 0px; color: black;"><span style="margin: 0px; padding: 0px; color: rgb(153, 51, 0); font-weight: bold;">&lt;/</span><span style="margin: 0px; padding: 0px; color: rgb(153, 51, 0); font-weight: bold;">if</span><span style="margin: 0px; padding: 0px; color: rgb(153, 51, 0); font-weight: bold;">&gt;</span><span style="margin: 0px; padding: 0px;">&nbsp;&nbsp;</span></span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 12px;"><br/></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 15px; color: rgb(255, 0, 0);">&lt;!-- 处理SQL大于小于号 --&gt;</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="color: rgb(0, 128, 128); font-size: 11pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">&lt;![CDATA[ &nbsp; &nbsp; &nbsp;&nbsp;</span><span style="font-size: 11pt; color: rgb(0, 128, 128);">]]&gt;</span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt; color: rgb(0, 128, 128);"><br/></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 11pt; color: rgb(255, 0, 0);">//数据库case when语句</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas;"><span style="font-size: 11pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">(case when w.begin_money is null then &#39;—&#39;&nbsp;</span><span style="font-size: 15px;">when w.begin_money is null then &#39;—&#39;&nbsp;&nbsp;</span><span style="font-size: 11pt;">else w.begin_money end)</span></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 15px;"><br/></span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 15px; color: rgb(255, 0, 0);">//MYsql字符串拼接</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 14pt; background-image: initial; background-attachment: initial; background-size: initial; background-origin: initial; background-clip: initial; background-position: initial; background-repeat: initial;">CONCAT(&#39;,&#39;,serveCategroys,&#39;,&#39;) like &#39;%,${service},%&#39;</span>
+				</p>
+				<p>
+					<span style="font-family: Consolas; font-size: 15px;"><br/></span>
+				</p>
+			</div>
+			<div class="col-sm-2">
+			</div>
+		</div>
+	</div>
+	</body>
+</html>
