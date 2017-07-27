@@ -116,22 +116,20 @@
         }
     </style>
 </head>
-<body>
+<body onload="queryGroup();">
 	<div class="col-sm-2">
 	</div>
 	<div class="col-sm-8">
 		<h3>类别：</h3>
 		<div class="btn-group">
-			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-info='1' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					java
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Java
 				<span class="caret"></span>
 			</button>
-			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				<li><a href="javascript:void(0);"  data-info='1'>java</a></li>
-				<li><a href="javascript:void(0);"  data-info='2'>linux</a></li>
-				<li><a href="javascript:void(0);"  data-info='3'>js</a></li>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" id="ulType">
+				
 			</ul>
-			<input type="hidden" value='' id='hidType'>
+			<input type="hidden" value='1' id='hidType'>
 		</div>
 		<h3>标题：</h3>
 		<input type="text" id="titleInp" placeholder="输入标题..." style="width:500px;height:30px;">
@@ -156,8 +154,5 @@
 	um.addListener('focus',function(){
 		$('#focush2').html('')
 	});
-	
-	//Bmob.initialize("Application ID", "REST API Key");
-	Bmob.initialize("81e6a11fc5daa1c7398f8a9f8d8d21f4", "7354929e5b3e06e7c120cb46f1ae7882");
-	</script>
+</script>
 </html>

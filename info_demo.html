@@ -6,22 +6,24 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>DemoTitle</title>
-		<link rel="shortcut icon" href="../img/icon.jpg">
+		<link rel="shortcut icon" href="./img/icon.jpg">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<link rel="stylesheet" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-		<script src="../js/jquery.min.js"></script>
-		<script src="../js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/bootstrap.min.js"></script>
+		<script src="./umeditor/bmob.js"></script>
+		<script src="./umeditor/newfile.js"></script>
 	</head>
 	<body>
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3>DemoH3</h3>
+			<h3 id="h3Id">DemoH3</h3>
 		</div>
 		<div class="panel-body">
 			<div class="col-sm-2">
 			</div>
-			<div class="col-sm-8">
+			<div class="col-sm-8" id="divInfo">
 				
 			</div>
 			<div class="col-sm-2">
@@ -29,4 +31,8 @@
 		</div>
 	</div>
 	</body>
+<script type="text/javascript">
+	var id=UrlParm.parm("id");
+	queryInfo(id);
+</script>
 </html>

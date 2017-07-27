@@ -16,8 +16,10 @@
 		<script src="./js/jquery.min.js"></script>
 		<script src="./js/bootstrap.min.js"></script>
 		<script src="./js/md5.js"></script>
+		<script src="./umeditor/bmob.js"></script>
+		<script src="./umeditor/newfile.js"></script>
 	</head>
-	<body class="home-template">
+	<body class="home-template" onload="queryList();">
 		<div class="jumbotron">
 			<div class="container">
 				<h1>一个简单的博客</h1>
@@ -30,39 +32,8 @@
 					<div class="col-sm-8">
 						<div class="widget">
 							<h4 class="title">技术文章</h4>
-							<div class="content recent-post">
-								<div class="recent-single-post">
-									<a href="html/info_eclipse.html" class="post-title" target="_blank">Eclipse常用操作</a>
-									<div class="date">2017年07月22日</div>
-								</div>
-								<div class="recent-single-post">
-									<a href="html/info_java.html" class="post-title" target="_blank">JAVA基础笔记（很实用）继承-多态-抽象类-接口-异常-集合-IO-线程-Socket</a>
-									<div class="date">2017年07月22日</div>
-								</div>
-								<div class="recent-single-post">
-									<a href="html/info_js_2.html" class="post-title" target="_blank">jJQuery总结摘要</a>
-									<div class="date">2017年07月22日</div>
-								</div>
-								<div class="recent-single-post">
-									<a href="html/info_js_1.html" class="post-title" target="_blank">js字符串操作</a>
-									<div class="date">2017年07月22日</div>
-								</div>
-								<div class="recent-single-post">
-									<a href="html/info_js.html" class="post-title" target="_blank">操作js示例代码</a>
-									<div class="date">2017年07月20日</div>
-								</div>
-								<div class="recent-single-post">
-									<a href="html/info_mybatis.html" class="post-title" target="_blank">Mybatis详解代码</a>
-									<div class="date">2017年07月20日</div>
-								</div>
-								<div class="recent-single-post">
-									<a href="html/info_linux.html" class="post-title" target="_blank">实用Linux操作命令</a>
-									<div class="date">2017年07月20日</div>
-								</div>
-								<div class="recent-single-post">
-									<a href="html/info_url.html" class="post-title" target="_blank">个人收藏网址</a>
-									<div class="date">2017年07月20日</div>
-								</div>
+							<div class="content recent-post" id="divList">
+								
 							</div>
 						</div>
 					</div>
@@ -116,8 +87,9 @@
 		<a href="#" id="back-to-top" style="display: none;">
 			<i class="fa fa-angle-up"></i>
 		</a>
-		<script src="./js/jquery.min.js"></script>
+		
 		
 
 	</body>
+
 </html>
