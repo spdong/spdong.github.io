@@ -5,14 +5,17 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
     <title>UMEDITOR 完整demo</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="themes/default/css/umeditor.css" >
+	<link type="text/css" rel="stylesheet" href="bootstrap.min.css">
 	
     <script type="text/javascript" src="third-party/jquery.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
     <script type="text/javascript" src="third-party/template.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="umeditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="umeditor.min.js"></script>
     <script type="text/javascript" src="lang/zh-cn/zh-cn.js"></script>
 	<script type="text/javascript" charset="utf-8" src="newfile.js"></script>
+	<script type="text/javascript" src="bmob.js"></script>
     <style type="text/css">
         h1{
             font-family: "微软雅黑";
@@ -114,65 +117,47 @@
     </style>
 </head>
 <body>
-	<h3>标题：</h3>
-	<input type="text" id="titleInp" placeholder="输入标题..." style="width:500px;height:30px;">
-	<input type="text" id="htmlName" placeholder="生成html页面名称" style="width:100px;height:30px;">
-	<br/><br/>
-								
-	<!--style给定宽度可以影响编辑器的最终宽度-->
-	<script type="text/plain" id="myEditor" style="width:1000px;height:240px;">
-	</script>
-	<br/><br/>				
-	<button class="btn" onclick="getContent()">获得内容</button>&nbsp;
-	<div>
-		<h3 id="focush2"></h3>
+	<div class="col-sm-2">
 	</div>
-	<script type="text/javascript">
-		//新增页面方法
-		function addFile(title,content,htmlName){
-			var fso;
-			try { 
-				fso=new ActiveXObject("Scripting.FileSystemObject"); 
-			} catch (e) { 
-				alert("当前浏览器不支持,请使用IE浏览器！");
-				return;
-			}  	
-			var openf1 = fso.OpenTextFile("C://Users//Administrator//Desktop//个人博客//html//info_demo.html");
-			var html='';
-			var f1 = fso.createtextfile("C://Users//Administrator//Desktop//个人博客//html//"+htmlName+".html",true,true);
-			while(!openf1.atEndOfLine){
-				var str = openf1.ReadLine();
-				if(str.indexOf('DemoTitle')>=0){
-					str = '<title>'+title+'</title>';
-				}
-				if(str.indexOf('DemoH3')>=0){
-					str = '<h3>'+title+'</h3>';
-				}
-				if(str.indexOf('col-sm-8')>=0){
-					str += content;
-				}
-				f1.writeLine(str); 
-			}	
-			openf1.Close();	
-			f1.Close();	
-			alert('添加成功！');
-		}
-
-		//实例化编辑器
-		var um = UM.getEditor('myEditor');
-		um.addListener('blur',function(){
-			$('#focush2').html('编辑器失去焦点了')
-		});
-		um.addListener('focus',function(){
-			$('#focush2').html('')
-		});
-		function getContent() {
-			var title = $("#titleInp").val();
-			var content = UM.getEditor('myEditor').getContent();
-			var htmlName = $("#htmlName").val();
-			addFile(title,content,htmlName);
-		}
-	</script>
-
+	<div class="col-sm-8">
+		<h3>类别：</h3>
+		<div class="btn-group">
+			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-info='1' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					java
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+				<li><a href="javascript:void(0);"  data-info='1'>java</a></li>
+				<li><a href="javascript:void(0);"  data-info='2'>linux</a></li>
+				<li><a href="javascript:void(0);"  data-info='3'>js</a></li>
+			</ul>
+			<input type="hidden" value='' id='hidType'>
+		</div>
+		<h3>标题：</h3>
+		<input type="text" id="titleInp" placeholder="输入标题..." style="width:500px;height:30px;">
+		<br/><br/>
+									
+		<!--style给定宽度可以影响编辑器的最终宽度-->
+		<script type="text/plain" id="myEditor" style="width:1000px;height:240px;">
+		</script>
+		<br/><br/>				
+		<button class="btn" onclick="getContent()">发布</button>&nbsp;
+		<div>
+			<h3 id="focush2"></h3>
+		</div>
+	</div>
+	<div class="col-sm-2">
+	</div>
+	
 </body>
+<script type="text/javascript">
+	//实例化编辑器
+	var um = UM.getEditor('myEditor');
+	um.addListener('focus',function(){
+		$('#focush2').html('')
+	});
+	
+	//Bmob.initialize("Application ID", "REST API Key");
+	Bmob.initialize("81e6a11fc5daa1c7398f8a9f8d8d21f4", "7354929e5b3e06e7c120cb46f1ae7882");
+	</script>
 </html>
