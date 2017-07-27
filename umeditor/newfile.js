@@ -1,4 +1,4 @@
-/*
+﻿/*
 	function addFile(title,content,htmlName){
 		var fso;
 		try { 
@@ -65,6 +65,7 @@ function queryGroup(){
 	var TGroup = Bmob.Object.extend("t_group");
 	var query = new Bmob.Query(TGroup);
 	// 查询所有数据
+	query.ascending("groupId");
 	query.find({
 	  success: function(results) {
 		// 循环处理查询到的数据
@@ -83,7 +84,6 @@ function queryGroup(){
 
 //选择下拉框类别
 function slertType(obj){
-	debugger;
 	var title = obj.text;
 	$('#dropdownMenu1').html(title);
 	var data = obj.getAttribute('data-info');
@@ -95,6 +95,7 @@ function queryList(){
 	var TWriting = Bmob.Object.extend("t_writing");
 	var query = new Bmob.Query(TWriting);
 	// 查询所有数据
+	query.descending("createdAt");
 	query.find({
 	  success: function(results) {
 		// 循环处理查询到的数据
