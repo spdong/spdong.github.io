@@ -95,7 +95,7 @@ function queryList(){
 	var TWriting = Bmob.Object.extend("t_writing");
 	var query = new Bmob.Query(TWriting);
 	// 查询所有数据
-	query.descending("createdAt");
+	query.descending("updatedAt");
 	query.find({
 	  success: function(results) {
 		// 循环处理查询到的数据
