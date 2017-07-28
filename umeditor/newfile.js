@@ -92,6 +92,14 @@ function slertType(obj){
 
 //查询文章列表
 function queryList(){
+	//添加查询访客数
+	addPeople();
+	//通过key来获取value
+	var dt = sessionStorage.getItem("writingList");
+	if(dt != null){
+		$("#divList").html(dt);
+		return;
+	}	
 	var TWriting = Bmob.Object.extend("t_writing");
 	var query = new Bmob.Query(TWriting);
 	// 查询所有数据
@@ -108,6 +116,8 @@ function queryList(){
 							+'	</div>';
 		}
 		$("#divList").html(content);
+		//添加key-value 数据到 sessionStorage
+		sessionStorage.setItem("writingList", content);
 	  },
 	  error: function(error) {
 		alert("查询失败: " + error.code + " " + error.message);
@@ -115,8 +125,39 @@ function queryList(){
 	});
 }
 
+//添加访客数
+function addPeople(){
+	var TConfig = Bmob.Object.extend("t_config");
+	var query = new Bmob.Query(TConfig);
+	// 这个 id 是要修改条目的 id，你在生成这个存储并成功时可以获取到，请看前面的文档
+	query.get('hom2WWWN', {
+    success: function(tConfig) {
+		var name = tConfig.get('name');
+		var num = tConfig.get('value');
+		$("#butPep").html(name+' '+num+' 人');
+      // 回调中可以取得这个 GameScore 对象的一个实例，然后就可以修改它了
+      tConfig.set('value', num+1);
+      tConfig.save();    
+    },
+    error: function(object, error) {
+		alert("添加访客数失败: " + error.code + " " + error.message);
+    }
+});
+}
+
+
+
 //查询文章详细
 function queryInfo(id){
+	//通过key来获取value
+	var title = sessionStorage.getItem("title"+id);
+	var content = sessionStorage.getItem("content"+id);
+	if(title != null && content!=null){
+		document.title=title; 
+		$("#h3Id").html(title);
+		$("#divInfo").html(content);
+		return;
+	}	
 	var TWriting = Bmob.Object.extend("t_writing");
 	//创建查询对象，入口参数是对象类的实例
 	var query = new Bmob.Query(TWriting);
@@ -124,12 +165,14 @@ function queryInfo(id){
 	query.get(""+id+"", {
 	  success: function(gameScore) {
 		// 查询成功，调用get方法获取对应属性的值
-		debugger;
 		var title = gameScore.get("title");
 		var content = gameScore.get("content");
 		document.title=title; 
 		$("#h3Id").html(title);
 		$("#divInfo").html(content);
+		//存入本地seesion缓存
+		sessionStorage.setItem("title"+id,title);
+		sessionStorage.setItem("content"+id,content);
 	  },
 	  error: function(object, error) {
 		// 查询失败
