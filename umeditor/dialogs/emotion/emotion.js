@@ -32,7 +32,7 @@
         sourceData: {
             emotion: {
                 tabNum:7, //切换面板数量
-                SmilmgName:{ 'edui-emotion-Jtab0':['j_00', 84], 'edui-emotion-Jtab1':['t_00', 40], 'edui-emotion-Jtab2':['w_00', 52], 'edui-emotion-Jtab3':['B_00', 63], 'edui-emotion-Jtab4':['C_00', 20], 'edui-emotion-Jtab5':['i_f', 50], 'edui-emotion-Jtab6':['y_00', 40] }, //图片前缀名
+                SmilmgName:{ 'edui-emotion-Jtab0':['j_00', 84], 'edui-emotion-Jtab1':['t_00', 40], 'edui-emotion-Jtab2':['w_00', 52], 'edui-emotion-Jtab3':['b_00', 63], 'edui-emotion-Jtab4':['c_00', 20], 'edui-emotion-Jtab5':['i_f', 50], 'edui-emotion-Jtab6':['y_00', 40] }, //图片前缀名
                 imageFolders:{ 'edui-emotion-Jtab0':'jx2/', 'edui-emotion-Jtab1':'tsj/', 'edui-emotion-Jtab2':'ldw/', 'edui-emotion-Jtab3':'bobo/', 'edui-emotion-Jtab4':'babycat/', 'edui-emotion-Jtab5':'face/', 'edui-emotion-Jtab6':'youa/'}, //图片对应文件夹路径
                 imageCss:{'edui-emotion-Jtab0':'jd', 'edui-emotion-Jtab1':'tsj', 'edui-emotion-Jtab2':'ldw', 'edui-emotion-Jtab3':'bb', 'edui-emotion-Jtab4':'cat', 'edui-emotion-Jtab5':'pp', 'edui-emotion-Jtab6':'youa'}, //图片css类名
                 imageCssOffset:{'edui-emotion-Jtab0':35, 'edui-emotion-Jtab1':35, 'edui-emotion-Jtab2':35, 'edui-emotion-Jtab3':35, 'edui-emotion-Jtab4':35, 'edui-emotion-Jtab5':25, 'edui-emotion-Jtab6':35}, //图片偏移
