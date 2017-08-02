@@ -39,13 +39,14 @@ function getContent() {
 	saveWriting(type,title,content);
 }
 
-//保存数据库
+//保存文章
 function saveWriting(type,title,content){
 	var TWriting = Bmob.Object.extend("t_writing");
 	var tWriting = new TWriting();
 	tWriting.set("groupId", type);
 	tWriting.set("title", title);
 	tWriting.set("content", content);
+	tWriting.set("readNum", 0);
 	//添加数据，第一个入口参数是null
 	tWriting.save(null, {
 	  success: function(tWriting) {
@@ -59,6 +60,30 @@ function saveWriting(type,title,content){
 	  }
 	});
 }
+
+//保存评论
+function saveWritingComm(writingId,comment,name){
+	debugger;
+	var TWritingComm = Bmob.Object.extend("t_writing_comm");
+	var tWritingComm = new TWritingComm();
+	tWritingComm.set("writingId", writingId);
+	tWritingComm.set("name", name);
+	tWritingComm.set("comment", comment);
+	//添加数据，第一个入口参数是null
+	tWritingComm.save(null, {
+	  success: function(tWritingComm) {
+		// 添加成功，返回成功之后的objectId（注意：返回的属性名字是id，不是objectId），你还可以在Bmob的Web管理后台看到对应的数据
+		window.location.reload();
+		alert('评论成功!');
+		
+	  },
+	  error: function(tWriting, error) {
+		// 添加失败
+		alert('添加数据失败，返回错误信息：' + error.message);
+	  }
+	});
+}
+
 
 //查询类别
 function queryGroup(){
@@ -142,9 +167,31 @@ function addPeople(){
     error: function(object, error) {
 		alert("添加访客数失败: " + error.code + " " + error.message);
     }
-});
+	});
 }
 
+//添加文章详情浏览数
+function addInfoNum(id){
+	var TWriting = Bmob.Object.extend("t_writing");
+	var query = new Bmob.Query(TWriting);
+	// 这个 id 是要修改条目的 id，你在生成这个存储并成功时可以获取到，请看前面的文档
+	query.get(id, {
+    success: function(tWriting) {
+		var time = sessionStorage.getItem("time"+id);
+		var num = tWriting.get('readNum');
+		if(num==null||num==''||num=='undefind'){
+			num=1;
+		}
+		$("#h4Time").html(time+'&nbsp;&nbsp;浏览数&nbsp;'+num);
+      // 回调中可以取得这个 GameScore 对象的一个实例，然后就可以修改它了
+      tWriting.set('readNum', num+1);
+      tWriting.save();    
+    },
+    error: function(object, error) {
+		alert("添加访客数失败: " + error.code + " " + error.message);
+    }
+	});
+}
 
 
 //查询文章详细
@@ -152,9 +199,12 @@ function queryInfo(id){
 	//通过key来获取value
 	var title = sessionStorage.getItem("title"+id);
 	var content = sessionStorage.getItem("content"+id);
-	if(title != null && content!=null){
+	var time = sessionStorage.getItem("time"+id);
+	var num = sessionStorage.getItem("num"+id);
+	if(title != null && content!=null&& time!=null&&num!=null){
 		document.title=title; 
 		$("#h3Id").html(title);
+		addInfoNum(id);
 		$("#divInfo").html(content);
 		return;
 	}	
@@ -167,18 +217,59 @@ function queryInfo(id){
 		// 查询成功，调用get方法获取对应属性的值
 		var title = gameScore.get("title");
 		var content = gameScore.get("content");
+		var num = gameScore.get("readNum");
+		var time = gameScore.createdAt;
 		document.title=title; 
 		$("#h3Id").html(title);
 		$("#divInfo").html(content);
+		$("#h4Time").html(time+'&nbsp;&nbsp;浏览数'+num);
 		//存入本地seesion缓存
 		sessionStorage.setItem("title"+id,title);
 		sessionStorage.setItem("content"+id,content);
+		sessionStorage.setItem("time"+id,time);
+		sessionStorage.setItem("num"+id,num);
+		addInfoNum(id);
 	  },
 	  error: function(object, error) {
 		// 查询失败
 		alert("查询失败: " + error.code + " " + error.message);
 	  }
 	});
+}
+
+//查询文章评论列表
+function queryCommList(id){	
+	var TWritingComm = Bmob.Object.extend("t_writing_comm");
+	//创建查询对象，入口参数是对象类的实例
+	var query = new Bmob.Query(TWritingComm);
+	query.equalTo("writingId", id); 
+	// 查询所有数据
+	query.find({
+		success: function(results) {
+			var length = results.length;
+			if(length > 0){
+				$("#emNum").html(length);
+				var content='';
+				// 循环处理查询到的数据
+				for (var i = 0; i < length; i++) {
+				var object = results[i];
+				content += '<ul class="list-group"> '
+					  +'<li class="list-group-item list-group-item-danger">'
+					  +'<div class="text-success"><p><strong>'+ object.get('name')+'&nbsp;&nbsp;&nbsp;&nbsp;'+object.createdAt+'</strong></p></div>'
+					  +'<p>'+ object.get('comment')+'</p>'
+					  +'</li>'
+					+'</ul>';
+				}
+				$("#divComm").html(content);
+				
+				
+			}
+		},
+		error: function(error) {
+			alert("查询失败: " + error.code + " " + error.message);
+		}
+	});
+
 }
 
 

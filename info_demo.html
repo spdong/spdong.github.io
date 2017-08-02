@@ -5,7 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>DemoTitle</title>
+		<title></title>
 		<link rel="shortcut icon" href="./img/icon.jpg">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -14,25 +14,104 @@
 		<script src="./js/bootstrap.min.js"></script>
 		<script src="./umeditor/bmob.js"></script>
 		<script src="./umeditor/newfile.js"></script>
+		
+		<link type="text/css" rel="stylesheet" href="./umeditor/themes/default/css/umeditor.css" >
+		<script type="text/javascript" src="./umeditor/third-party/template.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./umeditor/umeditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./umeditor/umeditor.min.js"></script>
+		<script type="text/javascript" src="./umeditor/lang/zh-cn/zh-cn.js"></script>
+	 
 	</head>
 	<body>
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-			<h3 id="h3Id">DemoH3</h3>
+			<h3 id="h3Id"></h3>
+			<h4 class="text-center" id="h4Time"></h4>
 		</div>
 		<div class="panel-body">
-			<div class="col-sm-2">
-			</div>
-			<div class="col-sm-8" id="divInfo">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2" id="divInfo">
+					
+				</div>
+			</div>	
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div class="well"> 
+						<em id="emNum">0</em>&nbsp;条评论
+					</div>
+					<div class="col-sm-6 input-group hide" id="divName">
+						<input type="text" id="inpName" class="form-control" placeholder="Username">
+						<span class="input-group-btn">
+							<button class="btn btn-danger" type="button" onclick="addName();">保存昵称</button>
+						</span>
+					</div>
+					</br>
+					<button class="btn btn-danger" onclick="addTall();" id="butTall" type="button">
+									评论
+					</button>
+					</br></br>
+					<!--style给定宽度可以影响编辑器的最终宽度-->
+					<script type="text/plain" id="myEditor2" style="width:100%;height:150px;">
+					</script>
+					<!--<textarea class="form-control hide" rows="4" id="textTall"></textarea>-->
+					</br>
+					<div id="divComm">
+					
+					<div>	 
+						
+						 
+
 				
-			</div>
-			<div class="col-sm-2">
+				</div>
 			</div>
 		</div>
 	</div>
 	</body>
 <script type="text/javascript">
+	//实例化编辑器
+	var ue = UM.getEditor('myEditor2', {
+		toolbar:[
+            'emotion'   
+        ]	
+	});
+	ue.setHide();
+	
 	var id=UrlParm.parm("id");
 	queryInfo(id);
+	queryCommList(id);
+	
+	function addName(){
+		var name = $("#inpName").val();
+		if(name==null||name==''||name=='undefind'){
+			alert('请输入昵称！');
+			return;
+		}
+		localStorage.setItem("pepname",name);
+		$('#divName').addClass('hide');
+	}
+	
+	function addTall(){
+		var html = $("#butTall").html();
+		if(html=='发表'){
+			var name = localStorage.getItem("pepname");
+			if(name==null){
+				$('#divName').removeClass('hide');
+				alert('请添加个昵称！');
+				return;
+			}
+			var comment = ue.getContent();
+			if(comment==null||comment==''||comment=='undefind'){
+				alert('请输入评论内容！');
+				return;
+			}
+			saveWritingComm(id,comment,name);
+			$("#butTall").html('评论');
+			ue.setHide();
+		}else{
+			$("#butTall").html('发表');
+			ue.setShow();
+		}
+		
+	}
 </script>
 </html>
