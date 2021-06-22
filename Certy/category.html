@@ -170,7 +170,7 @@
 									<h2 class="post-title entry-title text-upper"><a rel="bookmark" href="javascript:void(0);">浦发大屏监控项目</a></h2>
 
 									<div class="post-header-info">									
-										<span class="post-author vcard">时间：2016.12 – 至今</span>
+										<span class="post-author vcard">时间：2016.12 – 2018.5</span>
 										<span class="post-author vcard">框架：Struts2+Spring + Mybatis+hibernate</span>
 										<span class="post-author vcard">数据库：infomix</span>
 										<span class="post-author vcard">部署架构：F5+apache+weblogic+memcache+SSO</span>
@@ -180,10 +180,32 @@
 								<div class="post-content entry-content editor clearfix clear-mrg">
 									<p><b>内容：</b> 随着浦发银行客户服务中心运行的规范化，系统应用不断深入，业务量不断增加。为了实现人员集中统一实时监控，客户服务中心各个地域的运营数据进行统计汇总，并保持数据联动及数据跟踪分析，突发性事件进行响应而建立的一套高效、可靠、易用的运营平台。
 									</p>
-									<p><b>介绍：</b> 介绍：项目分两个子系统，监控应用系统和监控数据系统。应用子系统为前端展现的运营监控和坐席区监控提供监控画面和实时数据，并采用sso单点登录机制，
+									<p><b>介绍：</b> 项目分两个子系统，监控应用系统和监控数据系统。应用子系统为前端展现的运营监控和坐席区监控提供监控画面和实时数据，并采用sso单点登录机制，
 									可提供多种大屏展现模板；数据子系统通过CTI程序接口通信方式采集到的实时数据根据业务算法进行统计计算，存入memcache缓存，方便应用子系统实时提取。
 									每台web服务器可同时访问数据子系统的两台数据缓存服务器，通过程序控制，实现高可用。应用子系统分别部署上海2台，合肥2台，前端通过负载均衡实现访问控制和高可用。
 									数据子系统通过shell脚本启动JAVA定时调度引擎,每天零点重新注册CTI，每6秒实时采集数据调用memcache client端存入memcahce缓存中。
+									</p>
+								</div>
+							</div>
+						</article>
+				
+						<article class="post hentry">
+							<div class="padd-box-sm">
+								<header class="post-header text-center">
+									<h2 class="post-title entry-title text-upper"><a rel="bookmark" href="javascript:void(0);">AI云平台项目</a></h2>
+
+									<div class="post-header-info">									
+										<span class="post-author vcard">时间：2018.5 – 至今</span>
+										<span class="post-author vcard">框架：前后端分离，前端vue + iView 后端 springBoot</span>
+										<span class="post-author vcard">数据库：Mysql</span>
+										<span class="post-author vcard">部署架构：k8s + docker容器化</span>
+									</div>
+								</header>
+
+								<div class="post-content entry-content editor clearfix clear-mrg">
+									<p><b>内容：</b> AI云平台分为学习平台、推理平台、统一运营平台、标注平台。
+									</p>
+									<p><b>介绍：</b> 标注平台是进行模型数据的标注；学习平台可进行深度学习，支持多种学习算法；推理平台可进行能力的部署和API发布；运营管理负责平台的监控、报表、资源限制、用户角色机构管理等。本人主要负责运营管理平台，参与部分推理平台的开发任务。实现了运营管理平台的架构重构、4A登录和审计对接、短信网关、GPU资源限制等；实现了推理平台自定义业务指标监控、初始化容器开发等。
 									</p>
 								</div>
 							</div>
